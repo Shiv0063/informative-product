@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light" data-pwa="true">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Viewport -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+
+    <!-- SEO Meta Tags -->
+    <title>Ai</title>
+    <meta name="description" content="Cartzilla - Multipurpose E-Commerce Bootstrap HTML Template">
+    <meta name="keywords"
+        content="online shop, e-commerce, online store, market, multipurpose, product landing, cart, checkout, ui kit, light and dark mode, bootstrap, html5, css3, javascript, gallery, slider, mobile, pwa">
+    <meta name="author" content="Ai">
+
+    <!-- Webmanifest + Favicon / App icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/app-icons/icon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/app-icons/icon-180x180.png">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Preloaded local web font (Inter) -->
+    <link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Font icons -->
+    <link rel="preload" href="assets/icons/cartzilla-icons.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="assets/icons/cartzilla-icons.min.css">
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendor/simplebar/simplebar.min.css">
+    <link rel="stylesheet" href="assets/vendor/glightbox/glightbox.min.css">
+
+    <!-- Bootstrap + Theme styles -->
+    <link rel="preload" href="assets/css/theme.min.css" as="style">
+    <link rel="preload" href="assets/css/theme.rtl.min.css" as="style">
+    <link rel="stylesheet" href="assets/css/theme.min.css" id="theme-styles">
+
+    <!-- Customizer -->
+    <script src="assets/js/customizer.min.js"></script>
+</head>
+
+
+<!-- Body -->
+
+<body>
+    <!-- Shopping cart offcanvas (Empty state) -->
+    <div class="offcanvas offcanvas-end pb-sm-2 px-sm-2" id="shoppingCart" tabindex="-1"
+        aria-labelledby="shoppingCartLabel" style="width: 500px">
+        <div class="offcanvas-header py-3 pt-lg-4">
+            <h4 class="offcanvas-title" id="shoppingCartLabel">Shopping cart</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body text-center">
+            <svg class="d-block mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="60" viewbox="0 0 29.5 30">
+                <path class="text-body-tertiary"
+                    d="M17.8 4c.4 0 .8-.3.8-.8v-2c0-.4-.3-.8-.8-.8-.4 0-.8.3-.8.8v2c0 .4.3.8.8.8zm3.2.6c.4.2.8 0 1-.4l.4-.9c.2-.4 0-.8-.4-1s-.8 0-1 .4l-.4.9c-.2.4 0 .9.4 1zm-7.5-.4c.2.4.6.6 1 .4s.6-.6.4-1l-.4-.9c-.2-.4-.6-.6-1-.4s-.6.6-.4 1l.4.9z"
+                    fill="currentColor"></path>
+                <path class="text-body-emphasis"
+                    d="M10.7 24.5c-1.5 0-2.8 1.2-2.8 2.8S9.2 30 10.7 30s2.8-1.2 2.8-2.8-1.2-2.7-2.8-2.7zm0 4c-.7 0-1.2-.6-1.2-1.2s.6-1.2 1.2-1.2 1.2.6 1.2 1.2-.5 1.2-1.2 1.2zm11.1-4c-1.5 0-2.8 1.2-2.8 2.8a2.73 2.73 0 0 0 2.8 2.8 2.73 2.73 0 0 0 2.8-2.8c0-1.6-1.3-2.8-2.8-2.8zm0 4c-.7 0-1.2-.6-1.2-1.2s.6-1.2 1.2-1.2 1.2.6 1.2 1.2-.6 1.2-1.2 1.2zM8.7 18h16c.3 0 .6-.2.7-.5l4-10c.2-.5-.2-1-.7-1H9.3c-.4 0-.8.3-.8.8s.4.7.8.7h18.3l-3.4 8.5H9.3L5.5 1C5.4.7 5.1.5 4.8.5h-4c-.5 0-.8.3-.8.7s.3.8.8.8h3.4l3.7 14.6a3.24 3.24 0 0 0-2.3 3.1C5.5 21.5 7 23 8.7 23h16c.4 0 .8-.3.8-.8s-.3-.8-.8-.8h-16a1.79 1.79 0 0 1-1.8-1.8c0-1 .9-1.6 1.8-1.6z"
+                    fill="currentColor"></path>
+            </svg>
+            <h6 class="mb-2">Your shopping cart is currently empty!</h6>
+            <p class="fs-sm mb-4">Explore our wide range of products and add items to your cart to proceed with your
+                purchase.</p>
+            <a class="btn btn-dark rounded-pill" href="shop-catalog-furniture.html">Continue shopping</a>
+        </div>
+    </div>
+
+
+    <!-- Navigation bar (Page header) -->
+    <header class="navbar-sticky sticky-top container z-fixed px-2 mt-3" data-sticky-element="">
+        <div class="navbar navbar-expand-lg flex-nowrap bg-body rounded-pill shadow ps-0 mx-1">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark rounded-pill z-0 d-none d-block-dark"></div>
+
+            <!-- Mobile offcanvas menu toggler (Hamburger) -->
+            <button type="button" class="navbar-toggler ms-3" data-bs-toggle="offcanvas" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar brand (Logo) -->
+            <a class="navbar-brand position-relative z-1 ms-4 ms-sm-5 ms-lg-4 me-2 me-sm-5 me-lg-3"
+                href="index.html">Cartzilla</a>
+
+            <!-- Main navigation that turns into offcanvas on screens < 992px wide (lg breakpoint) -->
+            <nav class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1" aria-labelledby="navbarNavLabel">
+                <div class="offcanvas-header py-3">
+                    <h5 class="offcanvas-title" id="navbarNavLabel">Browse Cartzilla</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body pt-3 pb-4 py-lg-0 mx-lg-auto">
+                    <ul class="navbar-nav position-relative">
+                        <li class="nav-item  me-lg-n1 me-xl-0">
+                            <a class="nav-link  fs-sm " aria-current="page" href="index.html" role="button">Home</a>
+                        </li>
+                        <li class="nav-item me-lg-n2 me-xl-0">
+                            <a class="nav-link fs-sm" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item me-lg-n2 me-xl-0">
+                            <a class="nav-link fs-sm active" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown me-lg-n1 me-xl-0">
+                            <a class="nav-link dropdown-toggle fs-sm" href="#" role="button" data-bs-toggle="dropdown"
+                                data-bs-trigger="hover" data-bs-auto-close="outside" aria-expanded="false">Category</a>
+                            <ul class="dropdown-menu" style="--cz-dropdown-spacer: 1rem">
+                                <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+                                <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Button group -->
+            <div class="d-flex gap-sm-1 position-relative z-1">
+
+                <!-- Theme switcher (light/dark/auto) -->
+                <div class="dropdown">
+                    <button type="button"
+                        class="theme-switcher btn btn-icon btn-outline-secondary fs-lg border-0 rounded-circle animate-scale"
+                        data-bs-toggle="dropdown" data-bs-display="dynamic" aria-expanded="false"
+                        aria-label="Toggle theme (light)">
+                        <span class="theme-icon-active d-flex animate-target">
+                            <i class="ci-sun"></i>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu start-50 translate-middle-x"
+                        style="--cz-dropdown-min-width: 9rem; --cz-dropdown-spacer: 1rem">
+                        <li>
+                            <button type="button" class="dropdown-item active" data-bs-theme-value="light"
+                                aria-pressed="true">
+                                <span class="theme-icon d-flex fs-base me-2">
+                                    <i class="ci-sun"></i>
+                                </span>
+                                <span class="theme-label">Light</span>
+                                <i class="item-active-indicator ci-check ms-auto"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                                <span class="theme-icon d-flex fs-base me-2">
+                                    <i class="ci-moon"></i>
+                                </span>
+                                <span class="theme-label">Dark</span>
+                                <i class="item-active-indicator ci-check ms-auto"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="false">
+                                <span class="theme-icon d-flex fs-base me-2">
+                                    <i class="ci-auto"></i>
+                                </span>
+                                <span class="theme-label">Auto</span>
+                                <i class="item-active-indicator ci-check ms-auto"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="content-wrapper">
+        <div class="container py-5 mb-2 mb-sm-3 mb-md-4 mb-lg-5 mt-lg-3 mt-xl-4">
+
+            <!-- Page title -->
+            <h1 class="text-center">Contact us</h1>
+            <p class="text-center pb-2 pb-sm-3">Fill out the form below and we will reply within 24 hours</p>
+
+
+            <!-- Form + Image -->
+            <section class="row row-cols-1 row-cols-md-2 g-0 overflow-hidden rounded-5">
+
+                <!-- Contact form -->
+                <div class="col bg-body-tertiary py-5 px-4 px-xl-5">
+                    <form class="needs-validation py-md-2 px-md-1 px-lg-3 mx-lg-3" novalidate="">
+                        <div class="position-relative mb-4">
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" class="form-control form-control-lg rounded-pill" id="name" required="">
+                            <div class="invalid-tooltip bg-transparent z-0 py-0 ps-3">Enter your name!</div>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" class="form-control form-control-lg rounded-pill" id="email"
+                                required="">
+                            <div class="invalid-tooltip bg-transparent z-0 py-0 ps-3">Enter your email address!</div>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <label class="form-label">Subject *</label>
+                            <select class="form-select form-select-lg rounded-pill" data-select="{
+                    &quot;classNames&quot;: {
+                      &quot;containerInner&quot;: [&quot;form-select&quot;, &quot;form-select-lg&quot;, &quot;rounded-pill&quot;]
+                    }
+                  }" required="">
+                                <option value="">Select subject</option>
+                                <option value="General inquiry">General inquiry</option>
+                                <option value="Order status">Order status</option>
+                                <option value="Product information">Product information</option>
+                                <option value="Technical support">Technical support</option>
+                                <option value="Website feedback">Website feedback</option>
+                                <option value="Account assistance">Account assistance</option>
+                                <option value="Security concerns">Security concerns</option>
+                            </select>
+                            <div class="invalid-tooltip bg-transparent z-0 py-0 ps-3">Select the subject of your
+                                message!</div>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control form-control-lg rounded-6" id="message" rows="5"
+                                required=""></textarea>
+                            <div class="invalid-tooltip bg-transparent z-0 py-0 ps-3">Write your message!</div>
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit" class="btn btn-lg btn-dark rounded-pill">Send message</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Image -->
+                <div class="col position-relative">
+                    <img src="assets/img/contact/form-image.jpg"
+                        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" alt="Image">
+                </div>
+            </section>
+
+
+            <!-- Contacts -->
+            <section class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 pt-5 pb-3 pb-md-4 pb-lg-3 mt-lg-0 mt-xxl-4">
+                <div class="col text-center pt-1 pt-sm-2 pt-md-3">
+                    <div
+                        class="position-relative d-inline-block bg-body-tertiary text-dark-emphasis fs-xl rounded-circle p-4 mb-3">
+                        <i class="ci-phone-outgoing position-absolute top-50 start-50 translate-middle"></i>
+                    </div>
+                    <h3 class="h6">Call us directly</h3>
+                    <ul class="list-unstyled m-0">
+                        <li class="nav animate-underline justify-content-center">
+                            Customers:
+                            <a class="nav-link animate-target fs-base ms-1 p-0"
+                                href="tel:+15053753082">+1&nbsp;50&nbsp;537&nbsp;53&nbsp;082</a>
+                        </li>
+                        <li class="nav animate-underline justify-content-center">
+                            Franchise:
+                            <a class="nav-link animate-target fs-base ms-1 p-0"
+                                href="tel:+15053753000">+1&nbsp;50&nbsp;537&nbsp;53&nbsp;000</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col text-center pt-1 pt-sm-2 pt-md-3">
+                    <div
+                        class="position-relative d-inline-block bg-body-tertiary text-dark-emphasis fs-xl rounded-circle p-4 mb-3">
+                        <i class="ci-mail position-absolute top-50 start-50 translate-middle"></i>
+                    </div>
+                    <h3 class="h6">Send a message</h3>
+                    <ul class="list-unstyled m-0">
+                        <li class="nav animate-underline justify-content-center">
+                            Customers:
+                            <a class="nav-link animate-target fs-base ms-1 p-0"
+                                href="mailto:info@cartzilla.com">info@cartzilla.com</a>
+                        </li>
+                        <li class="nav animate-underline justify-content-center">
+                            Franchise:
+                            <a class="nav-link animate-target fs-base ms-1 p-0"
+                                href="mailto:franchise@cartzilla.com">franchise@cartzilla.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col text-center pt-1 pt-sm-2 pt-md-3">
+                    <div
+                        class="position-relative d-inline-block bg-body-tertiary text-dark-emphasis fs-xl rounded-circle p-4 mb-3">
+                        <i class="ci-map-pin position-absolute top-50 start-50 translate-middle"></i>
+                    </div>
+                    <h3 class="h6">Store location</h3>
+                    <ul class="list-unstyled m-0">
+                        <li>New York 11741, USA</li>
+                        <li>396 Lillian Bolavandy, Holbrook</li>
+                    </ul>
+                </div>
+                <div class="col text-center pt-1 pt-sm-2 pt-md-3">
+                    <div
+                        class="position-relative d-inline-block bg-body-tertiary text-dark-emphasis fs-xl rounded-circle p-4 mb-3">
+                        <i class="ci-clock position-absolute top-50 start-50 translate-middle"></i>
+                    </div>
+                    <h3 class="h6">Working hours</h3>
+                    <ul class="list-unstyled m-0">
+                        <li>Mon - Fri 8:00 - 18:00</li>
+                        <li>Sut - Sun 10:00 - 16:00</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="my-lg-5">
+
+
+
+            <!-- Map -->
+            <section class="position-relative bg-body-tertiary rounded-5">
+                <a class="position-absolute top-50 start-50 translate-middle z-2 mt-lg-n4"
+                    href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30908.594922615324!2d-73.07331970206108!3d40.788157341303005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e8483b8bffed93%3A0x53467ceb834b7397!2s396%20Lillian%20Blvd%2C%20Holbrook%2C%20NY%2011741%2C%20USA!5e0!3m2!1sen!2s!4v1706086459668!5m2!1sen!2"
+                    style="width: 50px" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="hover"
+                    data-bs-content="Click to view the map" data-glightbox="width: 100vw; height: 100vh;"
+                    data-gallery="map" aria-label="Toggle map">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 42.5 54.6">
+                        <path
+                            d="M42.5 19.2C42.5 8.1 33.2-.7 22 0 12.4.7 4.7 8.5 4.2 18c-.2 2.7.3 5.3 1.1 7.7h0s3.4 10.4 17.4 25c.4.4 1 .4 1.4 0 13.6-13.3 17.4-25 17.4-25h0c.6-2 1-4.2 1-6.5z"
+                            fill="#ffffff"></path>
+                        <g fill="#222934">
+                            <path
+                                d="M20.4 31.8c-4.5 0-8.1-3.6-8.1-8.1s3.6-8.1 8.1-8.1 8.1 3.6 8.1 8.1-3.7 8.1-8.1 8.1zm0-14.2a6.06 6.06 0 0 0-6.1 6.1 6.06 6.06 0 0 0 6.1 6.1c3.3 0 6.1-2.7 6.1-6.1s-2.8-6.1-6.1-6.1z">
+                            </path>
+                            <circle cx="20.4" cy="23.7" r="3"></circle>
+                            <path
+                                d="M20.4 54.5c-.6 0-1.1-.2-1.4-.6C5 39.3 1.5 29 1.4 28.5a21.92 21.92 0 0 1-1.2-8c.6-10.1 8.6-18.3 18.7-19C24.6 1.1 30 3 34.1 6.9c4.1 3.8 6.4 9.2 6.4 14.8 0 2.4-.4 4.7-1.2 6.9-.1.5-4 12-17.6 25.3-.3.4-.8.6-1.3.6zm-17-26.2c.8 2 4.9 11.6 17 24.2 13.2-13 17-24.5 17.1-24.6.7-2 1.1-4.1 1.1-6.3 0-5-2.1-9.9-5.8-13.3-3.7-3.5-8.6-5.2-13.7-4.8-9.1.6-16.4 8-16.9 17.1-.1 2.5.2 5 1.1 7.3l.1.4z">
+                            </path>
+                        </g>
+                    </svg>
+                </a>
+                <img src="assets/img/contact/map.jpg"
+                    class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-5" alt="Map">
+                <div class="d-none d-xxl-block" style="height: 600px"></div>
+                <div class="d-none d-xl-block d-xxl-none" style="height: 500px"></div>
+                <div class="d-none d-lg-block d-xl-none" style="height: 420px"></div>
+                <div class="d-none d-md-block d-lg-none" style="height: 350px"></div>
+                <div class="d-md-none" style="height: 300px"></div>
+                <span class="position-absolute top-0 start-0 z-1 w-100 h-100 bg-body opacity-25"></span>
+            </section>
+        </div>
+    </main>
+
+
+    <!-- Page footer -->
+    <footer class="footer bg-dark pb-4 py-lg-5" data-bs-theme="dark">
+        <div class="container pt-5 pt-lg-4 mt-sm-2 mt-md-3">
+            <div class="row pb-5">
+
+                <!-- Subscription + Social account links -->
+                <div class="col-md col-xl-8 order-md-2">
+                    <div class="text-center px-sm-4 mx-auto" style="max-width: 568px">
+                        <h3 class="pb-1 mb-2">Stay in touch with us</h3>
+                        <p class="fs-sm text-body pb-2 pb-sm-3">Receive the latest updates about our products &amp;
+                            promotions</p>
+                        <form class="needs-validation position-relative" novalidate="">
+                            <input type="email" class="form-control form-control-lg rounded-pill text-start"
+                                placeholder="You email" aria-label="Your email address" required="">
+                            <div class="invalid-tooltip bg-transparent p-0">Please enter you email address!</div>
+                            <button type="submit"
+                                class="btn btn-icon fs-xl btn-dark rounded-circle position-absolute top-0 end-0 mt-1 me-1"
+                                aria-label="Submit your email address" data-bs-theme="light">
+                                <i class="ci-arrow-up-right"></i>
+                            </button>
+                        </form>
+                        <div class="d-flex justify-content-center gap-2 pt-4 pt-md-5 mt-1 mt-md-0">
+                            <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
+                                data-bs-toggle="tooltip"
+                                data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white p-0&quot;></div></div>"
+                                title="YouTube" aria-label="Follow us on YouTube">
+                                <i class="ci-youtube"></i>
+                            </a>
+                            <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
+                                data-bs-toggle="tooltip"
+                                data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white p-0&quot;></div></div>"
+                                title="Facebook" aria-label="Follow us on Facebook">
+                                <i class="ci-facebook"></i>
+                            </a>
+                            <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
+                                data-bs-toggle="tooltip"
+                                data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white p-0&quot;></div></div>"
+                                title="Instagram" aria-label="Follow us on Instagram">
+                                <i class="ci-instagram"></i>
+                            </a>
+                            <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
+                                data-bs-toggle="tooltip"
+                                data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white p-0&quot;></div></div>"
+                                title="Telegram" aria-label="Follow us on Telegram">
+                                <i class="ci-telegram"></i>
+                            </a>
+                            <a class="btn btn-icon fs-base btn-outline-secondary border-0" href="#!"
+                                data-bs-toggle="tooltip"
+                                data-bs-template="<div class=&quot;tooltip fs-xs mb-n2&quot; role=&quot;tooltip&quot;><div class=&quot;tooltip-inner bg-transparent text-white p-0&quot;></div></div>"
+                                title="Pinterest" aria-label="Follow us on Pinterest">
+                                <i class="ci-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category links -->
+                <div class="col-md-auto col-xl-2 text-center order-md-1 pt-4 pt-md-0">
+                    <ul class="nav d-inline-flex flex-md-column justify-content-center align-items-center gap-md-2">
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Bedroom</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Living room</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Bathroom</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Decoration</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Kitchen</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Sale</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Customer links -->
+                <div class="col-md-auto col-xl-2 text-center order-md-3 pt-3 pt-md-0">
+                    <ul class="nav d-inline-flex flex-md-column justify-content-center align-items-center gap-md-2">
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Shipping
+                                options</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Tracking a
+                                package</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Help center</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Contact us</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Product returns</a>
+                        </li>
+                        <li class="animate-underline my-1 mx-2 m-md-0">
+                            <a class="nav-link d-inline-flex fw-normal p-0 animate-target" href="#!">Locations</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <p class="fs-xs text-body text-center pt-lg-4 mt-n2 mt-md-0 mb-0">
+                © All rights reserved. Made by <span class="animate-underline"><a
+                        class="animate-target text-white text-decoration-none" href="index.html"
+                        target="_blank" rel="noreferrer">Ai</a></span>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <div class="floating-buttons position-fixed top-50 end-0 z-sticky me-3 me-xl-4 pb-4">
+        <a class="btn-scroll-top btn btn-sm bg-body border-0 rounded-pill shadow animate-slide-end" href="#top">
+            Top
+            <i class="ci-arrow-right fs-base ms-1 me-n1 animate-target"></i>
+            <span class="position-absolute top-0 start-0 w-100 h-100 border rounded-pill z-0"></span>
+            <svg class="position-absolute top-0 start-0 w-100 h-100 z-1" viewbox="0 0 62 32" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x=".75" y=".75" width="60.5" height="30.5" rx="15.25" stroke="currentColor" stroke-width="1.5"
+                    stroke-miterlimit="10"></rect>
+            </svg>
+        </a>
+    </div>
+
+
+    <!-- Vendor scripts -->
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/simplebar/simplebar.min.js"></script>
+    <script src="assets/vendor/glightbox/glightbox.min.js"></script>
+
+    <!-- Bootstrap + Theme scripts -->
+    <script src="assets/js/theme.min.js"></script>
+
+
+</body>
+
+</html>
